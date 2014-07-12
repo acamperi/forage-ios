@@ -17,6 +17,7 @@
     MKDistanceFormatter *distanceFormatter;
     CLLocationManager *locationManager;
     CLLocationDirection directionToRestaurant;
+    UILabel *restaurantNameLabel;
 }
 
 - (void)viewDidLoad
@@ -36,6 +37,14 @@
     [exitIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(done:)]];
     exitIcon.userInteractionEnabled = YES;
     [self.view addSubview:exitIcon];
+    
+    restaurantNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., CGRectGetMaxY(forageHeading.frame) + 10., self.view.bounds.size.width, 60.)];
+    restaurantNameLabel.backgroundColor = [UIColor clearColor];
+    restaurantNameLabel.textColor = [UIColor blackColor];
+    restaurantNameLabel.textAlignment = NSTextAlignmentCenter;
+    restaurantNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:20.];
+    restaurantNameLabel.numberOfLines = 0;
+    [self.view addSubview:restaurantNameLabel];
     
     pointerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forage_icon_green"]];
     pointerImage.frame = CGRectInset(self.view.bounds, 80., 100.);
@@ -91,6 +100,9 @@
     CLLocation *restaurantLocation = [[CLLocation alloc] initWithLatitude:self.restaurant.latitude longitude:self.restaurant.longitude];
     CLLocationDistance distanceToRestaurant = [restaurantLocation distanceFromLocation:userLocation];
     distanceToRestaurantLabel.text = [NSString stringWithFormat:@"Distance: %@", [distanceFormatter stringFromDistance:distanceToRestaurant]];
+    if (distanceToRestaurant < 50.) {
+        restaurantNameLabel.text = [NSString stringWithFormat:@"Welcome to %@!", self.restaurant.name];
+    }
     
 //    double lat1 = userLocation.coordinate.latitude * M_PI / 180.;
 //    double lon1 = userLocation.coordinate.longitude * M_PI / 180.;
