@@ -9,12 +9,6 @@
 #import "MainViewController.h"
 #import "AFNetworking.h"
 
-@interface MainViewController ()
-
-@property (atomic) BOOL isWaitingForLocation;
-
-@end
-
 @implementation MainViewController
 {
     UIActivityIndicatorView *activityIndicator;
@@ -44,8 +38,6 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     locationManager.delegate = self;
     
-    self.isWaitingForLocation = NO;
-    
     requestOperationManager = [AFHTTPRequestOperationManager manager];
     
     CGRect restaurantCardScrollViewFrame = self.view.bounds;
@@ -68,18 +60,10 @@
 {
     [super viewDidAppear:animated];
     
-    self.isWaitingForLocation = YES;
     [locationManager startUpdatingLocation];
     [activityIndicator startAnimating];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    if (!self.isWaitingForLocation) {
-        return;
-    }
-    self.isWaitingForLocation = NO;
-    CLLocation *currentLocation = [locations lastObject];
+    
+    CLLocation *currentLocation = [locationManager location];
     NSDictionary *locationParameters = @{@"lat" : @(currentLocation.coordinate.latitude),
                                          @"lon" : @(currentLocation.coordinate.longitude)};
     [requestOperationManager GET:@"http://forage2.herokuapp.com/locate" parameters:locationParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
