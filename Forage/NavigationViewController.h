@@ -17,8 +17,8 @@
 @interface NavigationViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) id <NavigationViewControllerDelegate> delegate;
+@property (strong, nonatomic) Restaurant *restaurant;
 
-- (id)initWithRestaurant:(Restaurant *)restaurant_;
 - (IBAction)done:(id)sender;
 
 @end

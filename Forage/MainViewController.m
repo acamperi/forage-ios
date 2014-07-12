@@ -139,22 +139,19 @@
 
 - (void)startNavigationForRestaurantCard:(RestaurantCard *)restaurantCard
 {
-    NavigationViewController *navigationViewController = [[NavigationViewController alloc] initWithRestaurant:restaurantCard.restaurant];
+    NavigationViewController *navigationViewController = [[NavigationViewController alloc] init];
+    navigationViewController.restaurant = restaurantCard.restaurant;
+    navigationViewController.delegate = self;
     [self presentViewController:navigationViewController animated:YES completion:nil];
 }
 
-#pragma mark - Flipside View
-
 - (void)navigationViewControllerDidFinish:(NavigationViewController *)controller
 {
+    [currentCard removeFromSuperview];
+    [nextCard removeFromSuperview];
+    [activityIndicator startAnimating];
+    forageHeading.image = [UIImage imageNamed:@"forage_logo"];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-    }
 }
 
 @end

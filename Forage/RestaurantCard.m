@@ -14,7 +14,7 @@
     id <RestaurantCardDelegate> delegate;
     UILabel *genreLabel;
     UIImageView *startNavigationButton;
-//    UIControl *startNavigationButton;
+    UILabel *nextSuggestionLabel;
 }
 
 - (id)initWithFrame:(CGRect)frame delegate:(id<RestaurantCardDelegate>)delegate_
@@ -28,15 +28,25 @@
         genreLabel.backgroundColor = [UIColor clearColor];
         genreLabel.textAlignment = NSTextAlignmentCenter;
         genreLabel.textColor = [UIColor whiteColor];
-        genreLabel.font = [UIFont systemFontOfSize:60];
+        genreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.];
         genreLabel.numberOfLines = 0;
         [self addSubview:genreLabel];
         
         startNavigationButton = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"go_button"]];
+        startNavigationButton.frame = CGRectMake(0, self.bounds.size.height - 120., self.bounds.size.width, 100.);
         startNavigationButton.contentMode = UIViewContentModeScaleAspectFit;
         [startNavigationButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startNavigationButtonPressed)]];
         startNavigationButton.userInteractionEnabled = YES;
         [self addSubview:startNavigationButton];
+        
+        nextSuggestionLabel = [[UILabel alloc] init];
+        nextSuggestionLabel.backgroundColor = [UIColor clearColor];
+        nextSuggestionLabel.textAlignment = NSTextAlignmentCenter;
+        nextSuggestionLabel.textColor = [UIColor whiteColor];
+        nextSuggestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:15.];
+        nextSuggestionLabel.text = @"Not tempted? Swipe left to see the next suggestion.";
+        nextSuggestionLabel.numberOfLines = 0;
+        [self addSubview:nextSuggestionLabel];
     }
     return self;
 }
@@ -46,8 +56,8 @@
     _restaurant = restaurant;
     genreLabel.text = restaurant.genre;
     [genreLabel sizeToFit];
-    genreLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) - genreLabel.frame.size.height / 2.);
-    startNavigationButton.frame = CGRectMake(0, CGRectGetMidY(self.bounds) + 10, self.bounds.size.width, 100);
+    genreLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) - 30.);
+    nextSuggestionLabel.frame = CGRectMake(0., CGRectGetMaxY(genreLabel.frame) + 10., self.bounds.size.width, 40.);
 }
 
 - (void)startNavigationButtonPressed

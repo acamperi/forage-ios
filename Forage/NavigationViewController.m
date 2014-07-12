@@ -10,22 +10,13 @@
 
 @implementation NavigationViewController
 {
-    Restaurant *restaurant;
     UIImageView *forageHeading;
+    UIImageView *exitIcon;
     UIImageView *pointerImage;
     UILabel *distanceToRestaurantLabel;
     MKDistanceFormatter *distanceFormatter;
     CLLocationManager *locationManager;
     CLLocationDirection directionToRestaurant;
-}
-
-- (id)initWithRestaurant:(Restaurant *)restaurant_
-{
-    self = [super init];
-    if (self) {
-        restaurant = restaurant_;
-    }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -35,9 +26,16 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.71 green:0.522 blue:0.255 alpha:1];
     
     forageHeading = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forage_logo"]];
-    forageHeading.frame = CGRectMake(0, 30, self.view.bounds.size.width, 50);
+    forageHeading.frame = CGRectMake(0, 30, self.view.bounds.size.width - 60., 50);
     forageHeading.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:forageHeading];
+    
+    exitIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"x-mark-512"]];
+    exitIcon.frame = CGRectMake(CGRectGetMaxX(forageHeading.frame) + 5., 30., 40., 40.);
+    exitIcon.contentMode = UIViewContentModeScaleAspectFit;
+    [exitIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(done:)]];
+    exitIcon.userInteractionEnabled = YES;
+    [self.view addSubview:exitIcon];
     
     pointerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forage_icon_green"]];
     pointerImage.frame = CGRectInset(self.view.bounds, 80., 100.);
@@ -49,7 +47,7 @@
     distanceToRestaurantLabel.backgroundColor = [UIColor clearColor];
     distanceToRestaurantLabel.textColor = [UIColor blackColor];
     distanceToRestaurantLabel.textAlignment = NSTextAlignmentCenter;
-    distanceToRestaurantLabel.font = [UIFont systemFontOfSize:30.];
+    distanceToRestaurantLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:30.];
     distanceToRestaurantLabel.numberOfLines = 0;
     [self.view addSubview:distanceToRestaurantLabel];
     
@@ -81,8 +79,8 @@
 {
     double lat1 = userLocation.coordinate.latitude * M_PI / 180.;
     double lon1 = userLocation.coordinate.longitude * M_PI / 180.;
-    double lat2 = restaurant.latitude * M_PI / 180.;
-    double lon2 = restaurant.longitude * M_PI / 180.;
+    double lat2 = self.restaurant.latitude * M_PI / 180.;
+    double lon2 = self.restaurant.longitude * M_PI / 180.;
     
     double directionRadians = atan2(sin(lon2 - lon1) * cos(lat2), cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(lon2 - lon1));
     directionToRestaurant = directionRadians * 180. / M_PI;
@@ -90,7 +88,7 @@
 
 - (void)updateDistanceToRestaurantForUserLocation:(CLLocation *)userLocation
 {
-    CLLocation *restaurantLocation = [[CLLocation alloc] initWithLatitude:restaurant.latitude longitude:restaurant.longitude];
+    CLLocation *restaurantLocation = [[CLLocation alloc] initWithLatitude:self.restaurant.latitude longitude:self.restaurant.longitude];
     CLLocationDistance distanceToRestaurant = [restaurantLocation distanceFromLocation:userLocation];
     distanceToRestaurantLabel.text = [NSString stringWithFormat:@"Distance: %@", [distanceFormatter stringFromDistance:distanceToRestaurant]];
     
@@ -106,8 +104,6 @@
 //    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
 //    double d = 6371. * c;
 }
-
-#pragma mark - Actions
 
 - (IBAction)done:(id)sender
 {
