@@ -13,6 +13,7 @@
     UIImageView *forageHeading;
     UIImageView *exitIcon;
     UIImageView *pointerImage;
+    UILabel *headedToLabel;
     UILabel *distanceToRestaurantLabel;
     MKDistanceFormatter *distanceFormatter;
     CLLocationManager *locationManager;
@@ -38,21 +39,30 @@
     exitIcon.userInteractionEnabled = YES;
     [self.view addSubview:exitIcon];
     
-    restaurantNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., CGRectGetMaxY(forageHeading.frame) + 10., self.view.bounds.size.width, 60.)];
+    headedToLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., CGRectGetMaxY(forageHeading.frame) + 10., self.view.bounds.size.width, 30.)];
+    headedToLabel.backgroundColor = [UIColor clearColor];
+    headedToLabel.textColor = [UIColor blackColor];
+    headedToLabel.textAlignment = NSTextAlignmentCenter;
+    headedToLabel.text = @"Headed To:";
+    headedToLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:20.];
+    [self.view addSubview:headedToLabel];
+    
+    restaurantNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., CGRectGetMaxY(headedToLabel.frame), self.view.bounds.size.width, 80.)];
     restaurantNameLabel.backgroundColor = [UIColor clearColor];
     restaurantNameLabel.textColor = [UIColor blackColor];
     restaurantNameLabel.textAlignment = NSTextAlignmentCenter;
-    restaurantNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:20.];
+    restaurantNameLabel.text = self.restaurant.name;
+    restaurantNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:25.];
     restaurantNameLabel.numberOfLines = 0;
     [self.view addSubview:restaurantNameLabel];
     
     pointerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forage_icon_green"]];
     pointerImage.frame = CGRectInset(self.view.bounds, 80., 100.);
-    pointerImage.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(forageHeading.frame) + (self.view.bounds.size.height - CGRectGetMaxY(forageHeading.frame)) / 2.);
+    pointerImage.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(headedToLabel.frame) + (self.view.bounds.size.height - CGRectGetMaxY(forageHeading.frame)) / 2.);
     pointerImage.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:pointerImage];
     
-    distanceToRestaurantLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., CGRectGetMaxY(pointerImage.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(pointerImage.frame))];
+    distanceToRestaurantLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., self.view.bounds.size.height - 50., self.view.bounds.size.width, 40.)];
     distanceToRestaurantLabel.backgroundColor = [UIColor clearColor];
     distanceToRestaurantLabel.textColor = [UIColor blackColor];
     distanceToRestaurantLabel.textAlignment = NSTextAlignmentCenter;
@@ -100,21 +110,6 @@
     CLLocation *restaurantLocation = [[CLLocation alloc] initWithLatitude:self.restaurant.latitude longitude:self.restaurant.longitude];
     CLLocationDistance distanceToRestaurant = [restaurantLocation distanceFromLocation:userLocation];
     distanceToRestaurantLabel.text = [NSString stringWithFormat:@"Distance: %@", [distanceFormatter stringFromDistance:distanceToRestaurant]];
-    if (distanceToRestaurant < 50.) {
-        restaurantNameLabel.text = [NSString stringWithFormat:@"Welcome to %@!", self.restaurant.name];
-    }
-    
-//    double lat1 = userLocation.coordinate.latitude * M_PI / 180.;
-//    double lon1 = userLocation.coordinate.longitude * M_PI / 180.;
-//    double lat2 = restaurant.latitude * M_PI / 180.;
-//    double lon2 = restaurant.longitude * M_PI / 180.;
-//    
-//    double dlon = lon2 - lon1;
-//    double dlat = lat2 - lat1;
-//    
-//    double a = pow(sin(dlat / 2), 2) + cos(lat1) * cos(lat2) * pow(sin(dlon/2), 2);
-//    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-//    double d = 6371. * c;
 }
 
 - (IBAction)done:(id)sender
