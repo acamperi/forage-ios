@@ -79,20 +79,20 @@
         return;
     }
     self.isWaitingForLocation = NO;
-//    CLLocation *currentLocation = [locations lastObject];
-//    NSDictionary *locationParameters = @{@"lat" : @(currentLocation.coordinate.latitude),
-//                                         @"lon" : @(currentLocation.coordinate.longitude)};
-//    [requestOperationManager GET:@"REPLACE_WITH_URL" parameters:locationParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [activityIndicator stopAnimating];
-//        [self processRestaurantsJson:responseObject];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@", error);
-//    }];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sample_data" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    [activityIndicator stopAnimating];
-    [self processRestaurantsJson:json];
+    CLLocation *currentLocation = [locations lastObject];
+    NSDictionary *locationParameters = @{@"lat" : @(currentLocation.coordinate.latitude),
+                                         @"lon" : @(currentLocation.coordinate.longitude)};
+    [requestOperationManager GET:@"http://forage2.herokuapp.com/locate" parameters:locationParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [activityIndicator stopAnimating];
+        [self processRestaurantsJson:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sample_data" ofType:@"json"];
+//    NSData *data = [NSData dataWithContentsOfFile:filePath];
+//    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//    [activityIndicator stopAnimating];
+//    [self processRestaurantsJson:json];
 }
 
 - (void)processRestaurantsJson:(NSArray *)json
