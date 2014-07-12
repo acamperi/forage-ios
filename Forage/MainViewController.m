@@ -122,7 +122,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (abs(restaurantCardScrollView.contentOffset.x - restaurantCardScrollView.bounds.size.width) < 0.001) {
+    if (restaurants && abs(restaurantCardScrollView.contentOffset.x - restaurantCardScrollView.bounds.size.width) < 0.001) {
         restaurantCardScrollView.scrollEnabled = NO;
         [currentCard removeFromSuperview];
         currentCard = nextCard;
@@ -147,9 +147,10 @@
 
 - (void)navigationViewControllerDidFinish:(NavigationViewController *)controller
 {
+    restaurants = nil;
+    restaurantCardScrollView.scrollEnabled = NO;
     [currentCard removeFromSuperview];
     [nextCard removeFromSuperview];
-    [activityIndicator startAnimating];
     forageHeading.image = [UIImage imageNamed:@"forage_logo"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
