@@ -26,6 +26,7 @@
     RestaurantCard *nextCard;
     int currentRestaurantIndex;
     int nextRestaurantIndex;
+    UIImageView *forageHeading;
 }
 
 - (void)viewDidLoad
@@ -56,6 +57,11 @@
     restaurantCardScrollView.scrollEnabled = NO;
     restaurantCardScrollView.delegate = self;
     [self.view addSubview:restaurantCardScrollView];
+    
+    forageHeading = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forage_logo"]];
+    forageHeading.frame = CGRectMake(0, 30, self.view.bounds.size.width, 50);
+    forageHeading.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:forageHeading];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -111,6 +117,7 @@
     [restaurantCardScrollView addSubview:currentCard];
     [restaurantCardScrollView addSubview:nextCard];
     restaurantCardScrollView.scrollEnabled = YES;
+    forageHeading.image = [UIImage imageNamed:@"forage_logo_white"];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
