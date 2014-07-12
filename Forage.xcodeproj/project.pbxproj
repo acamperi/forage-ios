@@ -28,6 +28,7 @@
 		B04DE75F1970E7F2004289C7 /* CardDecoration.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE75E1970E7F2004289C7 /* CardDecoration.m */; };
 		B04DE7611970EDFC004289C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7601970EDFC004289C7 /* CoreLocation.framework */; };
 		B04DE763197101D8004289C7 /* sample_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B04DE762197101D8004289C7 /* sample_data.json */; };
+		B04DE7651971413C004289C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7641971413C004289C7 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		B04DE75E1970E7F2004289C7 /* CardDecoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDecoration.m; sourceTree = "<group>"; };
 		B04DE7601970EDFC004289C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B04DE762197101D8004289C7 /* sample_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_data.json; sourceTree = "<group>"; };
+		B04DE7641971413C004289C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5C1DB5512B7478EB1D4EEAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04DE7651971413C004289C7 /* MapKit.framework in Frameworks */,
 				B04DE7611970EDFC004289C7 /* CoreLocation.framework in Frameworks */,
 				B04DE7221970DC80004289C7 /* CoreGraphics.framework in Frameworks */,
 				B04DE7241970DC80004289C7 /* UIKit.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		B04DE71E1970DC80004289C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B04DE7641971413C004289C7 /* MapKit.framework */,
 				B04DE7601970EDFC004289C7 /* CoreLocation.framework */,
 				B04DE71F1970DC80004289C7 /* Foundation.framework */,
 				B04DE7211970DC80004289C7 /* CoreGraphics.framework */,
