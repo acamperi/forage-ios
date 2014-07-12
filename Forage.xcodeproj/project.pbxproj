@@ -238,6 +238,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Forage;
 				TargetAttributes = {
+					B04DE71B1970DC80004289C7 = {
+						DevelopmentTeam = 7XJW437GYY;
+					};
 					B04DE73F1970DC80004289C7 = {
 						TestTargetID = B04DE71B1970DC80004289C7;
 					};
@@ -454,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Forage/Forage-Prefix.pch";
 				INFOPLIST_FILE = "Forage/Forage-Info.plist";
@@ -468,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Forage/Forage-Prefix.pch";
 				INFOPLIST_FILE = "Forage/Forage-Info.plist";
