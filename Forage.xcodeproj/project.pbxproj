@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8612BAA455EC445EAB4C7248 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1DB5512B7478EB1D4EEAF /* libPods.a */; };
 		B04DE7201970DC80004289C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE71F1970DC80004289C7 /* Foundation.framework */; };
 		B04DE7221970DC80004289C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7211970DC80004289C7 /* CoreGraphics.framework */; };
 		B04DE7241970DC80004289C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7231970DC80004289C7 /* UIKit.framework */; };
@@ -15,13 +16,18 @@
 		B04DE7301970DC80004289C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE72F1970DC80004289C7 /* AppDelegate.m */; };
 		B04DE7331970DC80004289C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04DE7311970DC80004289C7 /* Main.storyboard */; };
 		B04DE7361970DC80004289C7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE7351970DC80004289C7 /* MainViewController.m */; };
-		B04DE7391970DC80004289C7 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE7381970DC80004289C7 /* FlipsideViewController.m */; };
+		B04DE7391970DC80004289C7 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE7381970DC80004289C7 /* NavigationViewController.m */; };
 		B04DE73B1970DC80004289C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04DE73A1970DC80004289C7 /* Images.xcassets */; };
 		B04DE7421970DC80004289C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7411970DC80004289C7 /* XCTest.framework */; };
 		B04DE7431970DC80004289C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE71F1970DC80004289C7 /* Foundation.framework */; };
 		B04DE7441970DC80004289C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7231970DC80004289C7 /* UIKit.framework */; };
 		B04DE74C1970DC80004289C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04DE74A1970DC80004289C7 /* InfoPlist.strings */; };
 		B04DE74E1970DC80004289C7 /* ForageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE74D1970DC80004289C7 /* ForageTests.m */; };
+		B04DE7591970E2AC004289C7 /* RestaurantCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE7581970E2AC004289C7 /* RestaurantCard.m */; };
+		B04DE75C1970E2CC004289C7 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE75B1970E2CC004289C7 /* Restaurant.m */; };
+		B04DE75F1970E7F2004289C7 /* CardDecoration.m in Sources */ = {isa = PBXBuildFile; fileRef = B04DE75E1970E7F2004289C7 /* CardDecoration.m */; };
+		B04DE7611970EDFC004289C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04DE7601970EDFC004289C7 /* CoreLocation.framework */; };
+		B04DE763197101D8004289C7 /* sample_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B04DE762197101D8004289C7 /* sample_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3724F1DB2250463589F56EEA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B04DE71C1970DC80004289C7 /* Forage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04DE71F1970DC80004289C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B04DE7211970DC80004289C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,14 +55,23 @@
 		B04DE7321970DC80004289C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B04DE7341970DC80004289C7 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B04DE7351970DC80004289C7 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		B04DE7371970DC80004289C7 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
-		B04DE7381970DC80004289C7 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		B04DE7371970DC80004289C7 /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		B04DE7381970DC80004289C7 /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		B04DE73A1970DC80004289C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B04DE7401970DC80004289C7 /* ForageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04DE7411970DC80004289C7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B04DE7491970DC80004289C7 /* ForageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ForageTests-Info.plist"; sourceTree = "<group>"; };
 		B04DE74B1970DC80004289C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B04DE74D1970DC80004289C7 /* ForageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForageTests.m; sourceTree = "<group>"; };
+		B04DE7571970E2AC004289C7 /* RestaurantCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantCard.h; sourceTree = "<group>"; };
+		B04DE7581970E2AC004289C7 /* RestaurantCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantCard.m; sourceTree = "<group>"; };
+		B04DE75A1970E2CC004289C7 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		B04DE75B1970E2CC004289C7 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		B04DE75D1970E7F2004289C7 /* CardDecoration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDecoration.h; sourceTree = "<group>"; };
+		B04DE75E1970E7F2004289C7 /* CardDecoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDecoration.m; sourceTree = "<group>"; };
+		B04DE7601970EDFC004289C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B04DE762197101D8004289C7 /* sample_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_data.json; sourceTree = "<group>"; };
+		F5C1DB5512B7478EB1D4EEAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +79,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04DE7611970EDFC004289C7 /* CoreLocation.framework in Frameworks */,
 				B04DE7221970DC80004289C7 /* CoreGraphics.framework in Frameworks */,
 				B04DE7241970DC80004289C7 /* UIKit.framework in Frameworks */,
 				B04DE7201970DC80004289C7 /* Foundation.framework in Frameworks */,
+				8612BAA455EC445EAB4C7248 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +107,7 @@
 				B04DE7471970DC80004289C7 /* ForageTests */,
 				B04DE71E1970DC80004289C7 /* Frameworks */,
 				B04DE71D1970DC80004289C7 /* Products */,
+				3724F1DB2250463589F56EEA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +123,12 @@
 		B04DE71E1970DC80004289C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B04DE7601970EDFC004289C7 /* CoreLocation.framework */,
 				B04DE71F1970DC80004289C7 /* Foundation.framework */,
 				B04DE7211970DC80004289C7 /* CoreGraphics.framework */,
 				B04DE7231970DC80004289C7 /* UIKit.framework */,
 				B04DE7411970DC80004289C7 /* XCTest.framework */,
+				F5C1DB5512B7478EB1D4EEAF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,8 +141,14 @@
 				B04DE7311970DC80004289C7 /* Main.storyboard */,
 				B04DE7341970DC80004289C7 /* MainViewController.h */,
 				B04DE7351970DC80004289C7 /* MainViewController.m */,
-				B04DE7371970DC80004289C7 /* FlipsideViewController.h */,
-				B04DE7381970DC80004289C7 /* FlipsideViewController.m */,
+				B04DE7371970DC80004289C7 /* NavigationViewController.h */,
+				B04DE7381970DC80004289C7 /* NavigationViewController.m */,
+				B04DE7571970E2AC004289C7 /* RestaurantCard.h */,
+				B04DE7581970E2AC004289C7 /* RestaurantCard.m */,
+				B04DE75D1970E7F2004289C7 /* CardDecoration.h */,
+				B04DE75E1970E7F2004289C7 /* CardDecoration.m */,
+				B04DE75A1970E2CC004289C7 /* Restaurant.h */,
+				B04DE75B1970E2CC004289C7 /* Restaurant.m */,
 				B04DE73A1970DC80004289C7 /* Images.xcassets */,
 				B04DE7261970DC80004289C7 /* Supporting Files */,
 			);
@@ -131,6 +158,7 @@
 		B04DE7261970DC80004289C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B04DE762197101D8004289C7 /* sample_data.json */,
 				B04DE7271970DC80004289C7 /* Forage-Info.plist */,
 				B04DE7281970DC80004289C7 /* InfoPlist.strings */,
 				B04DE72B1970DC80004289C7 /* main.m */,
@@ -164,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B04DE7511970DC80004289C7 /* Build configuration list for PBXNativeTarget "Forage" */;
 			buildPhases = (
+				8925F0AD50984F76807E54D2 /* Check Pods Manifest.lock */,
 				B04DE7181970DC80004289C7 /* Sources */,
 				B04DE7191970DC80004289C7 /* Frameworks */,
 				B04DE71A1970DC80004289C7 /* Resources */,
+				181B9716B6C04823B9D563DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +266,7 @@
 				B04DE73B1970DC80004289C7 /* Images.xcassets in Resources */,
 				B04DE72A1970DC80004289C7 /* InfoPlist.strings in Resources */,
 				B04DE7331970DC80004289C7 /* Main.storyboard in Resources */,
+				B04DE763197101D8004289C7 /* sample_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,14 +280,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		181B9716B6C04823B9D563DA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8925F0AD50984F76807E54D2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B04DE7181970DC80004289C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B04DE7301970DC80004289C7 /* AppDelegate.m in Sources */,
+				B04DE75F1970E7F2004289C7 /* CardDecoration.m in Sources */,
 				B04DE7361970DC80004289C7 /* MainViewController.m in Sources */,
-				B04DE7391970DC80004289C7 /* FlipsideViewController.m in Sources */,
+				B04DE7591970E2AC004289C7 /* RestaurantCard.m in Sources */,
+				B04DE7391970DC80004289C7 /* NavigationViewController.m in Sources */,
+				B04DE75C1970E2CC004289C7 /* Restaurant.m in Sources */,
 				B04DE72C1970DC80004289C7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +446,7 @@
 		};
 		B04DE7521970DC80004289C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3724F1DB2250463589F56EEA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -392,6 +460,7 @@
 		};
 		B04DE7531970DC80004289C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3724F1DB2250463589F56EEA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -462,6 +531,7 @@
 				B04DE7531970DC80004289C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B04DE7541970DC80004289C7 /* Build configuration list for PBXNativeTarget "ForageTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +540,7 @@
 				B04DE7561970DC80004289C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

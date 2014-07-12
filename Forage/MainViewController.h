@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Forage. All rights reserved.
 //
 
-#import "FlipsideViewController.h"
+#import "NavigationViewController.h"
+#import "RestaurantCard.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
+@interface MainViewController : UIViewController <NavigationViewControllerDelegate, CLLocationManagerDelegate, UIScrollViewDelegate, RestaurantCardDelegate>
 
 @end
